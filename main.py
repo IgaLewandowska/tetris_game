@@ -5,6 +5,11 @@ screen = pygame.display.set_mode((680, 480), 0, 32)
 pygame.display.set_caption("Tetris Game")
 pygame.mouse.set_cursor(pygame.cursors.tri_left)
 
+x = 0
+y = 0
+w = 20
+h = 20
+step = 20
 white = (255, 255, 255)
 black = (  0,   0,   0)
 green = (0, 255, 0)
@@ -18,9 +23,27 @@ direction = "left"
 #screen2.blit(art, (50,20))
 #pygame.display.flip()
 
-pygame.draw.polygon(screen, green, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
+'''pygame.draw.polygon(screen, green, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
 pygame.draw.rect(screen, red, (200, 150, 100, 50))
-pygame.display.flip()
+pygame.display.flip()'''
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+    pygame.time.delay(100)
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        x -= step
+    if keys[pygame.K_RIGHT]:
+        x += step
+    if keys[pygame.K_UP]:
+        y -= step
+    if keys[pygame.K_DOWN]:
+        y += step
+
+    pygame.draw.rect(screen, white, (x, y, w, h))
+    pygame.display.flip()
 
 
 if direction == "right":
