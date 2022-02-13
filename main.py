@@ -1,7 +1,9 @@
 import pygame, sys, os
 from pygame.locals import *
 pygame.init()
-screen = pygame.display.set_mode((680, 480), 0, 32)
+width = 680
+height = 480
+screen = pygame.display.set_mode((width, height), 0, 0)
 pygame.display.set_caption("Tetris Game")
 pygame.mouse.set_cursor(pygame.cursors.tri_left)
 
@@ -11,21 +13,36 @@ w = 20
 h = 20
 step = 20
 white = (255, 255, 255)
-black = (  0,   0,   0)
+black = (0, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 180)
-red = (255,   0,   0)
-art = pygame.image.load("art.png")
-artx = 360
+red = (255, 0, 0)
+screen.fill(white)
+art = pygame.image.load("art-2.png")
+artx = 160
 arty = 180
-direction = "left"
-#screen2 = pygame.display.get_surface()
-#screen2.blit(art, (50,20))
-#pygame.display.flip()
+screen.blit(art, (artx, arty))
+pygame.display.flip()
+screen2 = pygame.display.get_surface()
 
-'''pygame.draw.polygon(screen, green, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
-pygame.draw.rect(screen, red, (200, 150, 100, 50))
-pygame.display.flip()'''
+
+
+a = 5
+b = 5
+running = 1
+'''
+while running:
+    a += 1
+    b += 1
+    screen2.blit(art, (a, b))
+    pygame.display.flip()
+'''
+
+
+pygame.draw.polygon(screen, green, ((20, 20), (20, 100), (70, 100), (70, 70), (50, 70), (50, 20), (20, 20)))
+#pygame.draw.polygon(screen, green, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
+#pygame.draw.rect(screen, red, (200, 150, 100, 50))
+pygame.display.flip()
 
 while True:
     for event in pygame.event.get():
