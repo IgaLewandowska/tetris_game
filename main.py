@@ -39,6 +39,7 @@ while running:
 '''
 
 
+
 pygame.draw.polygon(screen, green, ((20, 20), (20, 100), (70, 100), (70, 70), (50, 70), (50, 20), (20, 20)))
 #pygame.draw.polygon(screen, green, ((146, 0), (291, 106), (236, 277), (56, 277), (0, 106)))
 #pygame.draw.rect(screen, red, (200, 150, 100, 50))
