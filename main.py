@@ -36,11 +36,12 @@ def main_tetris():
         checkEvents()
         screen.fill(white)
         drawRect()
+        drawGrid(4)
         pygame.display.flip()
 
 
 
-def drawRect():
+'''def drawRect():
     pygame.draw.line(
         screen, black,
         (0 + step, 0 + step),
@@ -56,7 +57,48 @@ def drawRect():
     pygame.draw.line(
         screen, black,
         (width - step, 0 + step),
-        (width - step, height - step), 2)
+        (width - step, height - step), 2)'''
+
+def drawRect():
+    pygame.draw.rect(
+        screen, red,
+        (18, 18, 60, 60)
+    )
+
+
+def drawGrid(divisions):
+    size_grid = 300
+    grid_x, grid_y = 10, 10
+    pygame.draw.line(
+        screen, green,
+        (grid_x, grid_y),
+        (size_grid + grid_x, grid_y), 2)
+    pygame.draw.line(
+        screen, green,
+        (grid_x, size_grid + grid_y),
+        (size_grid + grid_x, size_grid + grid_y), 2)
+    pygame.draw.line(
+        screen, green,
+        (grid_x, grid_y),
+        (grid_x, size_grid + grid_y), 2)
+    pygame.draw.line(
+        screen, green,
+        (size_grid + grid_x, grid_y),
+        (size_grid + grid_x, size_grid + grid_y), 2)
+
+    cell_size = size_grid/divisions
+
+    for x in range(divisions):
+        pygame.draw.line(
+            screen, green,
+            (grid_x + (cell_size * x), grid_y),
+            (grid_x + (cell_size * x), size_grid + grid_y), 2)
+        pygame.draw.line(
+            screen, green,
+            (grid_x, grid_y + (cell_size * x)),
+            (size_grid + grid_x, grid_y + (cell_size * x)), 2)
+
+
 
 
 
